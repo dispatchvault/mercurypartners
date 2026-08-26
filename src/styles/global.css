@@ -214,6 +214,10 @@ h1 em, h2 em, h3 em, .serif-accent {
 .nav__toggle { display: none; background: none; border: none; cursor: pointer; padding: 0.75rem; }
 .nav__toggle span { display: block; width: 24px; height: 2px; background: var(--navy); margin: 5px 0; transition: transform 0.2s, opacity 0.2s; }
 @media (max-width: 860px) {
+  /* flex row: logo left, hamburger hard right; grid auto-placement would
+     drop the toggle into the middle column once the links leave the layout */
+  .nav__inner { display: flex; align-items: center; justify-content: space-between; }
+  .nav__logo img { height: 2rem; max-width: none; }
   .nav__links {
     display: none;
     position: absolute;
