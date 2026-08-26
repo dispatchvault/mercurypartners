@@ -248,6 +248,7 @@ h1 em, h2 em, h3 em, .serif-accent {
   padding-top: 6rem;
   padding-bottom: 6rem;
 }
+.hero__grid .lede, .hero__grid .btn-group, .hero__grid .hero-stats { margin-right: 14%; }
 .hero__grid .eyebrow { margin-bottom: 1rem; }
 .hero__grid .h1 { margin-bottom: 1.5rem; }
 .hero__grid .lede { margin-bottom: 2rem; }
@@ -263,6 +264,7 @@ h1 em, h2 em, h3 em, .serif-accent {
   .hero__grid { grid-template-columns: 1fr; gap: 3rem; padding-top: 4rem; padding-bottom: 4rem; }
   .hero__art { max-width: 30rem; }
   .hero__img-small { left: 0; }
+  .hero__grid .lede, .hero__grid .btn-group, .hero__grid .hero-stats { margin-right: 0; }
 }
 
 .hero-stats { display: flex; gap: 3rem; flex-wrap: wrap; border-top: 1px solid var(--border); margin-top: 3rem; padding-top: 2rem; }
