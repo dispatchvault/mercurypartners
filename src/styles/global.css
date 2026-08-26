@@ -515,7 +515,12 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .nav__link--active { color: var(--sky); }
 .nav__toggle span { background: #fff; }
 @media (max-width: 860px) {
-  .nav__links { background: var(--navy-dark); border-bottom-color: var(--border-on-navy); }
+  /* dropdown panel is always white with navy text (Navigator pattern) */
+  .nav__links { background: var(--white); border-bottom-color: var(--border); gap: 0; padding-top: 0.5rem; justify-self: stretch; left: 0; }
+  .nav__links .nav__link { width: 100%; color: var(--navy); font-size: 1.05rem; padding: 0.9rem 0; border-top: 1px solid var(--border); }
+  .nav__links .nav__link:first-child { border-top: none; }
+  .nav__links .nav__link::after { display: none; }
+  .nav__links .nav__link:hover, .nav__links .nav__link--active { color: var(--orange); }
 }
 
 /* dark heroes */
