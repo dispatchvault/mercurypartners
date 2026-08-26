@@ -453,3 +453,62 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   outline: 2px solid var(--orange);
   outline-offset: 2px;
 }
+
+/* =========================================================
+   VARIANT: client reference palette — dark-first
+   (branch client-palette only; tokens from the client's
+   01-Style-Guide.md, blue variant)
+   ========================================================= */
+:root {
+  --navy: #1a3557;
+  --navy-dark: #0f2236;
+  --navy-darker: #0a1826;
+  --navy-tint: #a9bdd3;
+  --navy-tint-light: #d5e0eb;
+  --orange: #3b82c4;          /* accent role: cyan-blue */
+  --orange-dark: #2d6aa3;
+  --indigo: #3b82c4;          /* serif italics on light grounds */
+  --sky: #93bcdf;
+  --sky-light: #c8ddf0;
+  --linkwater: #e4ecf4;       /* cream-mid */
+  --linkwater-lighter: #f4f7fa;
+  --grey-lightest: #f4f7fa;   /* cream */
+  --grey-dark: #4a5568;
+  --grey: #718096;
+  --border: rgba(15, 34, 54, 0.14);
+  --border-on-navy: rgba(59, 130, 196, 0.3);
+}
+
+/* deep-navy surfaces */
+.on-navy--deep { background: var(--navy-dark); }
+.on-navy .eyebrow { color: var(--sky); }
+
+/* dark translucent nav (client reference) */
+.nav { background: rgba(15, 34, 54, 0.9); border-bottom: 1px solid rgba(59, 130, 196, 0.25); }
+.nav__link { color: #fff; }
+.nav__link:hover { color: var(--sky); }
+.nav__link::after { background: var(--sky); }
+.nav__link--active { color: var(--sky); }
+.nav__toggle span { background: #fff; }
+@media (max-width: 860px) {
+  .nav__links { background: var(--navy-dark); border-bottom-color: var(--border-on-navy); }
+}
+
+/* dark heroes */
+.hero--dark, .page-hero--dark { background: var(--navy-dark); color: #fff; border-bottom: none; }
+.hero--dark .muted, .page-hero--dark .muted { color: var(--navy-tint); }
+.hero--dark h1 em, .page-hero--dark h1 em { color: var(--sky); }
+.hero--dark .eyebrow, .page-hero--dark .eyebrow { color: var(--sky); }
+.hero--dark .hero-stats { border-top-color: var(--border-on-navy); }
+.hero--dark .hero-stat__num { color: var(--sky); }
+.hero--dark .hero-stat__label { color: var(--navy-tint); }
+.hero--dark .btn { border-color: #fff; color: #fff; }
+.hero--dark .btn:hover { background: #fff; border-color: #fff; color: var(--navy-dark); }
+.hero--dark .btn--secondary { border-color: rgba(255, 255, 255, 0.3); }
+
+/* dark CTA band + deep footer */
+.cta-band.on-navy { border-top: none; }
+.cta-band.on-navy .muted { color: var(--navy-tint); }
+.footer { background: var(--navy-dark); }
+.footer__tag { color: var(--sky); }
+.footer__links a { color: var(--sky); }
