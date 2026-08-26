@@ -96,7 +96,7 @@ h1 em, h2 em, h3 em, .serif-accent {
 }
 .on-navy h1 em, .on-navy h2 em, .on-navy h3 em { color: var(--sky); }
 
-.h1 { font-size: clamp(2.75rem, 6vw, 5.5rem); letter-spacing: 0.0525rem; line-height: 0.98; }
+.h1 { font-size: clamp(2.75rem, 5.2vw, 5.25rem); letter-spacing: 0.0525rem; line-height: 0.98; }
 .h2 { font-size: clamp(2.1rem, 3.8vw, 3.75rem); letter-spacing: 0.0375rem; }
 .h3 { font-size: clamp(1.8rem, 3vw, 3rem); letter-spacing: 0.03rem; }
 .h4 { font-size: clamp(1.4rem, 2vw, 2rem); letter-spacing: 0.02rem; }
@@ -242,8 +242,8 @@ h1 em, h2 em, h3 em, .serif-accent {
 .hero { border-bottom: 1px solid var(--border); }
 .hero__grid {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 4rem;
+  grid-template-columns: 1fr 1fr;
+  gap: 4.5rem;
   align-items: center;
   padding-top: 6rem;
   padding-bottom: 6rem;
@@ -251,14 +251,18 @@ h1 em, h2 em, h3 em, .serif-accent {
 .hero__grid .eyebrow { margin-bottom: 1rem; }
 .hero__grid .h1 { margin-bottom: 1.5rem; }
 .hero__grid .lede { margin-bottom: 2rem; }
-.hero__art { position: relative; aspect-ratio: 1.08 / 1; }
-.hero__img-main { position: absolute; top: 0; right: 0; width: 74%; aspect-ratio: 1139 / 1000; overflow: hidden; }
+/* composition matched to the original site: full-width hero, art column
+   with square arch (84%) top-right and radiologist (60%) bottom-left */
+.hero .container { max-width: 100%; }
+.hero__art { position: relative; aspect-ratio: 1; }
+.hero__img-main { position: absolute; top: 0; right: 0; width: 84%; aspect-ratio: 1; overflow: hidden; }
 .hero__img-main img { width: 100%; height: 100%; object-fit: cover; }
-.hero__img-small { position: absolute; left: 0; bottom: 0; width: 52%; aspect-ratio: 1; overflow: hidden; z-index: 2; }
+.hero__img-small { position: absolute; left: -15%; bottom: 0; width: 60%; aspect-ratio: 1; overflow: hidden; z-index: 2; }
 .hero__img-small img { width: 100%; height: 100%; object-fit: cover; }
 @media (max-width: 860px) {
   .hero__grid { grid-template-columns: 1fr; gap: 3rem; padding-top: 4rem; padding-bottom: 4rem; }
   .hero__art { max-width: 30rem; }
+  .hero__img-small { left: 0; }
 }
 
 .hero-stats { display: flex; gap: 3rem; flex-wrap: wrap; border-top: 1px solid var(--border); margin-top: 3rem; padding-top: 2rem; }
