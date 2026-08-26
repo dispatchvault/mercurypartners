@@ -156,8 +156,8 @@ h1 em, h2 em, h3 em, .serif-accent {
 .btn:hover { border-color: var(--navy-dark); background: var(--navy-dark); color: var(--white); }
 .btn--secondary { border-width: 1px; border-color: var(--border); }
 .btn--secondary:hover { border-color: var(--navy); background: var(--navy); }
-.btn--on-navy { border-color: var(--white); background: var(--white); color: var(--navy); }
-.btn--on-navy:hover { border-color: var(--navy-tint); background: var(--navy-tint); color: var(--navy); }
+.btn--on-navy { border-color: var(--white); background: transparent; color: var(--white); }
+.btn--on-navy:hover { border-color: var(--white); background: var(--white); color: var(--navy-dark); }
 .btn--ghost-on-navy { border-width: 1px; border-color: var(--border-on-navy); background: transparent; color: var(--white); }
 .btn--ghost-on-navy:hover { background: rgba(255, 255, 255, 0.1); border-color: var(--border-on-navy); color: var(--white); }
 .btn--small { padding: 0.5rem 1.25rem; }
