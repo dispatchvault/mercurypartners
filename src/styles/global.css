@@ -596,3 +596,36 @@ html { scroll-padding-top: 5.5rem; }
     border-bottom-color: var(--border);
   }
 }
+
+/* =========================================================
+   Entrance animations (settled rise + fade)
+   Hidden state only when JS is running AND motion is allowed;
+   everyone else sees content instantly.
+   ========================================================= */
+@media (prefers-reduced-motion: no-preference) {
+  html.js-anim :is(
+    .page-hero__inner > *,
+    .hero__grid > div:first-child > *,
+    .hero__art,
+    .section-head,
+    .card,
+    .numeral-item,
+    .stat-card,
+    .pf-card,
+    .split > *,
+    .quote,
+    .faq,
+    .cta-band__inner > *,
+    .contact-grid > *
+  ) {
+    opacity: 0;
+    transform: translateY(24px);
+    transition:
+      opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  html.js-anim .in-view {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
