@@ -18,12 +18,11 @@ const PORT = 4400;
 
 const SITE = {
   client: "Mercury Partners",
-  repo: "Zincsolutions/mercurypartners",
+  repo: "dispatchvault/mercurypartners",
   netlifySite: "mercurypartners",
   productionUrl: "https://mercurypartners.netlify.app",
   productionBranch: "astro/main",
   localCheckout: new URL("../..", import.meta.url).pathname,
-  mirrorRemote: "dispatch",
 };
 
 async function gh(args) {
@@ -153,12 +152,6 @@ const server = createServer(async (req, res) => {
       let notice;
       if (req.url === "/approve") {
         await gh(["pr", "merge", n, "--repo", SITE.repo, "--merge"]);
-        // keep the dispatchvault mirror in sync with production
-        try {
-          await exec("git", ["-C", SITE.localCheckout, "fetch", "origin", SITE.productionBranch], { timeout: 60000 });
-          await exec("git", ["-C", SITE.localCheckout, "push", SITE.mirrorRemote,
-            `refs/remotes/origin/${SITE.productionBranch}:refs/heads/${SITE.productionBranch}`], { timeout: 60000 });
-        } catch { /* mirror sync is best-effort */ }
         notice = `<div class="notice">CR-${n} approved. Publishing to the live site now — allow a minute or two for the deploy, then refresh <a style="color:#bfe8d2" href="${SITE.productionUrl}">${SITE.productionUrl.replace("https://", "")}</a>.</div>`;
       } else {
         await gh(["pr", "close", n, "--repo", SITE.repo, "--comment", "Declined via Dispatch Approvals."]);
