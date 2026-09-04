@@ -554,9 +554,9 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .hero--dark .hero-stats { border-top-color: var(--border-on-navy); }
 .hero--dark .hero-stat__num { color: var(--sky); }
 .hero--dark .hero-stat__label { color: var(--navy-tint); }
-.hero--dark .btn { border-color: #fff; color: #fff; }
-.hero--dark .btn:hover { background: #fff; border-color: #fff; color: var(--navy-dark); }
-.hero--dark .btn--secondary { border-color: rgba(255, 255, 255, 0.3); }
+/* both hero CTAs share one softer-white outline */
+.hero--dark .btn, .hero--dark .btn--secondary { border: 2px solid rgba(255, 255, 255, 0.45); color: #fff; }
+.hero--dark .btn:hover, .hero--dark .btn--secondary:hover { background: #fff; border-color: #fff; color: var(--navy-dark); }
 
 /* dark CTA band + deep footer */
 .cta-band.on-navy { border-top: none; }
