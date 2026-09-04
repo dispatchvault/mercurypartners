@@ -6,22 +6,18 @@ import CtaBand from "../components/CtaBand.astro";
 
 const reasons = [
   {
-    num: "I",
     title: "No Forced Exit",
     body: "We are not bound by fund timelines or outside investors, allowing decisions driven by long-term value — not deadlines.",
   },
   {
-    num: "II",
     title: "Collaborative Growth",
     body: "We work alongside management teams, providing strategic support without disrupting the operations that got you here.",
   },
   {
-    num: "III",
     title: "Aligned Ownership",
     body: "We invest in control positions while preserving leadership continuity and the founder intent that defines the company.",
   },
   {
-    num: "IV",
     title: "Proven Judgment",
     body: "Over 30 years of investing and operating experience informs every decision we make — through all cycles and conditions.",
   },
@@ -130,7 +126,6 @@ const faqs = [
         {
           reasons.map((r) => (
             <div class="numeral-item">
-              <div class="numeral-item__num">{r.num}</div>
               <h3 class="numeral-item__title">{r.title}</h3>
               <p class="numeral-item__body">{r.body}</p>
             </div>

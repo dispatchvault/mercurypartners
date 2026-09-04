@@ -6,17 +6,14 @@ import CtaBand from "../components/CtaBand.astro";
 
 const principles = [
   {
-    num: "01",
     title: "Permanent Capital",
     body: "No fund timelines. No forced exits. We own businesses indefinitely, allowing decisions driven by long-term value—not deadlines.",
   },
   {
-    num: "02",
     title: "Founder Respect",
     body: "Every founder has built something worth protecting. We honor the vision, culture, and relationships that define each business.",
   },
   {
-    num: "03",
     title: "Operational Growth",
     body: "We work alongside management to accelerate value creation through strategic guidance, capital resources, and operational insight.",
   },
@@ -24,22 +21,18 @@ const principles = [
 
 const steps = [
   {
-    num: "I",
     title: "Identify",
     body: "We seek U.S.-based founder-owned businesses with $10–50M in revenue operating in healthcare services and business services with proven points of differentiation.",
   },
   {
-    num: "II",
     title: "Acquire",
     body: "Mercury's approach is to provide a seamless and thoughtful ownership transition that respects the founder's vision and legacy above all else.",
   },
   {
-    num: "III",
     title: "Build",
     body: "We work to accelerate value creation by leveraging 30+ years of experience investing in and managing lower middle-market businesses.",
   },
   {
-    num: "IV",
     title: "Partner",
     body: "Long-term aligned ownership with management teams. We collaborate without disrupting operations, preserving what works while strengthening what can improve.",
   },
@@ -128,7 +121,6 @@ const faqs = [
         {
           principles.map((p) => (
             <div class="card card--hover">
-              <div class="card__num">{p.num}</div>
               <h3 class="card__title">{p.title}</h3>
               <p class="card__body">{p.body}</p>
             </div>
@@ -150,9 +142,6 @@ const faqs = [
         {
           steps.map((s) => (
             <div class="numeral-item" style="border-top-color: var(--border-on-navy);">
-              <div class="numeral-item__num" style="color: var(--sky);">
-                {s.num}
-              </div>
               <h3 class="numeral-item__title">{s.title}</h3>
               <p class="numeral-item__body" style="color: var(--navy-tint);">
                 {s.body}
