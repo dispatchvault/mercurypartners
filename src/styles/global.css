@@ -365,7 +365,16 @@ h1 em, h2 em, h3 em, .serif-accent {
 
 /* ---------- quote ---------- */
 .quote { max-width: 48rem; margin: 0 auto; text-align: center; }
-.quote__mark { font-family: var(--font-serif), Georgia, serif; font-style: italic; font-size: 4rem; line-height: 0.5; color: var(--indigo); display: block; margin-bottom: 1.5rem; }
+.quote__mark {
+  font-family: var(--font-serif), Georgia, serif;
+  font-style: italic;
+  font-size: clamp(5rem, 7vw, 7rem);
+  line-height: 0.8;
+  color: var(--indigo);
+  display: block;
+  margin-bottom: 0.75rem;
+}
+.on-navy .quote__mark { color: var(--sky); }
 .quote__text { font-family: var(--font-heading), sans-serif; font-weight: 300; font-size: clamp(1.35rem, 2.2vw, 2rem); line-height: 1.35; letter-spacing: 0.02rem; }
 .quote__attr { margin-top: 2rem; font-weight: 600; }
 .quote__role { color: var(--grey-dark); font-weight: 400; }
