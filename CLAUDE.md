@@ -2,7 +2,7 @@
 
 This is the Mercury Partners website (mercurypartners.netlify.app, moving to
 mercfund.com). It is a small, static, five-page informational site. Pushing to
-the `astro/main` branch publishes to the live site automatically.
+the `main` branch publishes to the live site automatically.
 
 ## Scope of changes
 
@@ -53,7 +53,7 @@ change cards and FAQ entries.
 
 1. Make the edit.
 2. Run `npm run build` to confirm the site still builds.
-3. Commit to a **branch**, not directly to `astro/main`, and open a pull
+3. Commit to a **branch**, not directly to `main`, and open a pull
    request. Netlify builds a preview of the branch so the change can be
    reviewed on a real URL before it goes live.
 
