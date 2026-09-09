@@ -1,0 +1,109 @@
+---
+// Contact form backed by Netlify Forms — no third-party service or API key.
+// Submissions are captured by Netlify and emailed via Forms → Notifications.
+// Netlify detects the form in the built HTML at deploy time.
+//
+// Progressive enhancement: with JS the form posts via fetch and shows an
+// inline thank-you; without JS it posts normally and Netlify shows its own
+// success page. The honeypot field catches most bot submissions.
+---
+
+<form
+  class="form-grid"
+  name="contact"
+  method="POST"
+  data-netlify="true"
+  netlify-honeypot="bot-field"
+>
+  <input type="hidden" name="form-name" value="contact" />
+  <p class="is-hidden">
+    <label>Leave this field empty <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
+  </p>
+
+  <div class="field">
+    <label for="firstName">First Name</label>
+    <input id="firstName" name="firstName" type="text" autocomplete="given-name" required />
+  </div>
+  <div class="field">
+    <label for="lastName">Last Name</label>
+    <input id="lastName" name="lastName" type="text" autocomplete="family-name" required />
+  </div>
+  <div class="field">
+    <label for="email">Email Address</label>
+    <input id="email" name="email" type="email" autocomplete="email" required />
+  </div>
+  <div class="field">
+    <label for="phone">Phone Number</label>
+    <input id="phone" name="phone" type="tel" autocomplete="tel" />
+  </div>
+  <div class="field field--wide">
+    <label for="role">How would you describe yourself?</label>
+    <select id="role" name="role" required>
+      <option value="" disabled selected>Select one</option>
+      <option>Business owner</option>
+      <option>Founder seeking exit</option>
+      <option>Advisor or intermediary</option>
+      <option>Investment professional</option>
+      <option>Strategic partner</option>
+      <option>Other</option>
+    </select>
+  </div>
+  <div class="field field--wide">
+    <label for="subject">What is your inquiry about?</label>
+    <input id="subject" name="subject" type="text" placeholder="Brief description of your inquiry" />
+  </div>
+  <div class="field field--wide">
+    <label for="message">Message</label>
+    <textarea
+      id="message"
+      name="message"
+      placeholder="Tell us about your business, timeline, and goals..."
+      required></textarea>
+  </div>
+  <div class="field field--wide field--check">
+    <input id="privacy" name="privacy" type="checkbox" required />
+    <label for="privacy">
+      I agree to the privacy policy and consent to Mercury Partners contacting me regarding my
+      inquiry.
+    </label>
+  </div>
+  <div class="field field--wide">
+    <button class="btn" type="submit">Send Message</button>
+    <p class="form-status form-status--err" role="alert" hidden>
+      Something went wrong. Please try again, or email info@mercfund.com directly.
+    </p>
+  </div>
+</form>
+
+<p class="form-status form-status--ok" role="status" hidden>
+  Thank you. We'll be in touch soon.
+</p>
+
+<script>
+  const form = document.querySelector<HTMLFormElement>('form[name="contact"]');
+  const success = document.querySelector<HTMLElement>(".form-status--ok");
+  const error = document.querySelector<HTMLElement>(".form-status--err");
+  const button = form?.querySelector<HTMLButtonElement>('button[type="submit"]');
+
+  form?.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    if (!form || !button) return;
+    error?.setAttribute("hidden", "");
+    button.disabled = true;
+    button.textContent = "Sending…";
+    try {
+      const res = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(new FormData(form) as any).toString(),
+      });
+      if (!res.ok) throw new Error(String(res.status));
+      form.hidden = true;
+      success?.removeAttribute("hidden");
+    } catch {
+      error?.removeAttribute("hidden");
+      button.disabled = false;
+      button.textContent = "Send Message";
+    }
+  });
+</script>

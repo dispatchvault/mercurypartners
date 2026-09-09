@@ -647,3 +647,6 @@ html { scroll-padding-top: 5.5rem; }
     transform: none !important;
   }
 }
+
+/* honeypot field for Netlify Forms spam filtering */
+.is-hidden { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }

@@ -1,6 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
-import ContactForm from "../components/ContactForm";
+import ContactForm from "../components/ContactForm.astro";
 ---
 
 <Base
@@ -44,7 +44,7 @@ import ContactForm from "../components/ContactForm";
         <p class="lede" style="margin-bottom: 1.75rem;">
           Tell us about your business and what brings you here.
         </p>
-        <ContactForm client:visible />
+        <ContactForm />
       </div>
     </div>
   </section>

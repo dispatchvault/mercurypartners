@@ -7,7 +7,6 @@ Mercury Partners Webflow site and the project style guide.
 ## Stack
 
 - **Astro 7** (static output, Netlify adapter), TypeScript
-- React 19 used only for the contact-form island (`src/components/ContactForm.tsx`)
 - Plain CSS design tokens in `src/styles/global.css` (no CSS framework)
 - Self-hosted fonts via `@font-face` (`public/fonts/`): Causten Light (headings), Freight Big Pro
   Light + Italic (serif accents). Inter (body) via `@fontsource-variable/inter`.
@@ -21,27 +20,23 @@ npm install
 npm run dev
 ```
 
-`npm run build` outputs static pages to `dist/` plus a Netlify function for the contact endpoint;
+`npm run build` outputs static pages to `dist/`;
 `npm run preview` serves the production build locally.
 
 ## Contact form
 
-`src/components/ContactForm.tsx` (React island, `client:visible`) posts to
-`src/pages/api/contact.ts` (a server endpoint, `prerender = false`), which sends mail through
-[Resend](https://resend.com). Configure in Netlify → Site configuration → Environment variables:
+`src/components/ContactForm.astro` is a plain HTML form handled by
+[Netlify Forms](https://docs.netlify.com/forms/setup/) — no third-party service
+and no API keys. Netlify detects the form in the built HTML at deploy time and
+captures submissions.
 
-| Variable | Value |
-|---|---|
-| `RESEND_API_KEY` | API key from the Resend dashboard |
-| `CONTACT_TO` | Destination inbox (defaults to `info@mercfund.com`) |
+- **Submissions:** Netlify dashboard → Project → **Forms**
+- **Email notifications:** Forms → **Notifications** → add an email notification
+- **Spam:** a hidden `bot-field` honeypot is included; Netlify filters on it
 
-For production deliverability, verify the `mercfund.com` domain in Resend and change the `from`
-address in `src/pages/api/contact.ts` to something like `website@mercfund.com`.
-Until the key is set, the form shows an error state with a direct-email fallback.
-
-Set `PUBLIC_SITE_URL` at build time to control the canonical site URL used by the sitemap
-(defaults to `https://mercurypartners.netlify.app` until the mercfund.com cutover — update
-`public/robots.txt` then too).
+Progressive enhancement: with JavaScript the form posts via `fetch` and shows an
+inline thank-you message; without it, the form posts normally and Netlify shows
+its own success page.
 
 ## Design system
 
