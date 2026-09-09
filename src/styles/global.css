@@ -58,6 +58,9 @@
   /* stroke + radius are brand rules */
   --divider: 1px;
   --radius: 0;
+
+  /* single size for all running body copy — paragraphs, card text, list items */
+  --text-body: 1.125rem;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -102,7 +105,7 @@ h1 em, h2 em, h3 em, .serif-accent {
 .h4 { font-size: clamp(1.4rem, 2vw, 2rem); letter-spacing: 0.02rem; }
 
 .lede { font-size: 1.25rem; max-width: 60ch; }
-.text-regular { font-size: 1.125rem; }
+.text-regular { font-size: var(--text-body); }
 .muted { color: var(--grey-dark); }
 .on-navy .muted { color: var(--navy-tint); }
 
@@ -300,7 +303,7 @@ h1 em, h2 em, h3 em, .serif-accent {
   line-height: 1.3;
   margin-bottom: 0.65rem;
 }
-.card__body { font-size: 1rem; color: var(--grey-dark); }
+.card__body { font-size: var(--text-body); color: var(--grey-dark); }
 .card--hover:hover { background: var(--navy); color: var(--white); }
 .card--hover:hover .card__title { color: var(--white); }
 .card--hover:hover .card__body { color: var(--navy-tint); }
@@ -338,12 +341,12 @@ h1 em, h2 em, h3 em, .serif-accent {
 @media (max-width: 860px) { .split { grid-template-columns: 1fr; gap: 3rem; } }
 
 .checklist { list-style: none; margin-top: 0.5rem; }
-.checklist li { padding: 0.6rem 0; border-top: 1px solid var(--border); font-size: 1.05rem; display: flex; gap: 0.75rem; align-items: baseline; }
+.checklist li { padding: 0.6rem 0; border-top: 1px solid var(--border); font-size: var(--text-body); display: flex; gap: 0.75rem; align-items: baseline; }
 .checklist li::before { content: "—"; color: var(--orange); flex: none; }
 .on-navy .checklist li { border-top-color: var(--border-on-navy); }
 
 .plainlist { list-style: none; }
-.plainlist li { padding: 0.55rem 0; border-top: 1px solid var(--border); font-size: 1rem; color: var(--grey-dark); }
+.plainlist li { padding: 0.55rem 0; border-top: 1px solid var(--border); font-size: var(--text-body); color: var(--grey-dark); }
 .plainlist li:first-child { border-top: none; }
 .on-navy .plainlist li { border-top-color: var(--border-on-navy); color: var(--navy-tint); }
 
@@ -361,7 +364,7 @@ h1 em, h2 em, h3 em, .serif-accent {
   line-height: 1.3;
   margin-bottom: 0.55rem;
 }
-.numeral-item__body { color: var(--grey-dark); }
+.numeral-item__body { font-size: var(--text-body); color: var(--grey-dark); }
 
 /* ---------- quote ---------- */
 .quote { max-width: 48rem; margin: 0 auto; text-align: center; }
@@ -403,7 +406,7 @@ h1 em, h2 em, h3 em, .serif-accent {
 .faq__a { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.25s ease; }
 .faq__item--open .faq__a { grid-template-rows: 1fr; }
 .faq__a-inner { overflow: hidden; }
-.faq__a-inner p { padding-bottom: 1.5rem; color: var(--grey-dark); max-width: 65ch; }
+.faq__a-inner p { padding-bottom: 1.5rem; font-size: var(--text-body); color: var(--grey-dark); max-width: 65ch; }
 
 .faq-layout { display: grid; grid-template-columns: minmax(280px, 1fr) 1.6fr; gap: 4rem; align-items: start; }
 @media (max-width: 860px) { .faq-layout { grid-template-columns: 1fr; gap: 2rem; } }
@@ -433,7 +436,7 @@ h1 em, h2 em, h3 em, .serif-accent {
 }
 .pf-card:hover .pf-card__body, .pf-card:focus-within .pf-card__body { transform: translateY(0); opacity: 1; }
 .pf-card__title { font-size: 1.6rem; font-weight: 400; letter-spacing: 0.02rem; color: var(--white); }
-.pf-card__desc { color: rgba(255, 255, 255, 0.85); font-size: 0.95rem; }
+.pf-card__desc { color: rgba(255, 255, 255, 0.85); font-size: var(--text-body); }
 .pf-card__tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.5rem; }
 .pf-card__tags .tag { border-color: var(--white); color: var(--white); }
 /* touch devices: no hover — keep the info visible */
