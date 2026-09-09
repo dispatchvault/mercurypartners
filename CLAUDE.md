@@ -53,9 +53,12 @@ change cards and FAQ entries.
 
 1. Make the edit.
 2. Run `npm run build` to confirm the site still builds.
-3. Commit to a **branch**, not directly to `main`, and open a pull
-   request. Netlify builds a preview of the branch so the change can be
-   reviewed on a real URL before it goes live.
+3. Commit directly to `main` and push. Netlify publishes the change to the
+   live site automatically, usually within a minute. No branch or pull
+   request is needed.
+
+If you are on any branch other than `main`, switch back to `main` and pull
+the latest changes before editing.
 
 ## Contact
 
