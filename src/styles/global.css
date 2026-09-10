@@ -345,6 +345,36 @@ h1 em, h2 em, h3 em, .serif-accent {
 .checklist li::before { content: "—"; color: var(--orange); flex: none; }
 .on-navy .checklist li { border-top-color: var(--border-on-navy); }
 
+/* sector accordion — sub-sectors nested inside a card (Industry Focus) */
+.sector-acc__item { border-top: 1px solid var(--border); }
+.sector-acc__item:first-child { border-top: none; }
+.sector-acc__q {
+  width: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.55rem 0;
+  text-align: left;
+  font-family: var(--font-body), sans-serif;
+  font-size: var(--text-body);
+  line-height: 1.6;
+  color: var(--grey-dark);
+}
+.sector-acc__icon { font-size: 1.15rem; font-weight: 300; line-height: 1; color: var(--orange); transition: transform 0.2s; flex: none; }
+.sector-acc__item--open .sector-acc__icon { transform: rotate(45deg); }
+.sector-acc__a { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.25s ease; }
+.sector-acc__item--open .sector-acc__a { grid-template-rows: 1fr; }
+.sector-acc__a-inner { overflow: hidden; }
+.sector-acc__list { list-style: none; padding-bottom: 0.5rem; }
+.sector-acc__list li { position: relative; padding: 0.3rem 0 0.3rem 1.25rem; font-size: var(--text-body); color: var(--grey-dark); }
+.sector-acc__list li::before { content: "—"; position: absolute; left: 0; color: var(--orange); }
+.on-navy .sector-acc__item { border-top-color: var(--border-on-navy); }
+.on-navy .sector-acc__q, .on-navy .sector-acc__list li { color: var(--navy-tint); }
+
 .plainlist { list-style: none; }
 .plainlist li { padding: 0.55rem 0; border-top: 1px solid var(--border); font-size: var(--text-body); color: var(--grey-dark); }
 .plainlist li:first-child { border-top: none; }

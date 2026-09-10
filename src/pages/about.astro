@@ -19,7 +19,13 @@ const pillars = [
   },
 ];
 
-const strategy = [
+type StrategyCard = {
+  title: string;
+  items?: string[];
+  groups?: { title: string; items: string[] }[];
+};
+
+const strategy: StrategyCard[] = [
   {
     title: "The Right Business",
     items: [
@@ -49,7 +55,28 @@ const strategy = [
   },
   {
     title: "Industry Focus",
-    items: ["Healthcare Services", "Business Services"],
+    groups: [
+      {
+        title: "Healthcare Services",
+        items: [
+          "Healthcare diagnostics and monitoring",
+          "Medical products and distribution",
+          "Repair and maintenance",
+          "Sterilization and infection control",
+          "Surgical equipment maintenance",
+        ],
+      },
+      {
+        title: "Business Services",
+        items: [
+          "Equipment maintenance and repair",
+          "Testing, inspection, and calibration",
+          "Facilities management",
+          "Specialty field services",
+          "Safety and compliance",
+        ],
+      },
+    ],
   },
 ];
 
@@ -160,11 +187,35 @@ const faqs = [
           strategy.map((s) => (
             <div class="card">
               <h3 class="card__title">{s.title}</h3>
-              <ul class="plainlist">
-                {s.items.map((i) => (
-                  <li>{i}</li>
-                ))}
-              </ul>
+              {s.groups ? (
+                <div class="sector-acc">
+                  {s.groups.map((g) => (
+                    <div class="sector-acc__item">
+                      <button class="sector-acc__q" aria-expanded="false">
+                        {g.title}
+                        <span class="sector-acc__icon" aria-hidden="true">
+                          +
+                        </span>
+                      </button>
+                      <div class="sector-acc__a">
+                        <div class="sector-acc__a-inner">
+                          <ul class="sector-acc__list">
+                            {g.items.map((i) => (
+                              <li>{i}</li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <ul class="plainlist">
+                  {s.items?.map((i) => (
+                    <li>{i}</li>
+                  ))}
+                </ul>
+              )}
             </div>
           ))
         }
@@ -183,3 +234,13 @@ const faqs = [
 
   <CtaBand />
 </Base>
+
+<script>
+  document.querySelectorAll<HTMLElement>(".sector-acc__item").forEach((item) => {
+    const q = item.querySelector<HTMLButtonElement>(".sector-acc__q");
+    q?.addEventListener("click", () => {
+      const open = item.classList.toggle("sector-acc__item--open");
+      q.setAttribute("aria-expanded", String(open));
+    });
+  });
+</script>
