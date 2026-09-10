@@ -1,44 +1,68 @@
 ---
 import Base from "../layouts/Base.astro";
 import SectionHeader from "../components/SectionHeader.astro";
+import StatBand from "../components/StatBand.astro";
 import Faq from "../components/Faq.astro";
 import CtaBand from "../components/CtaBand.astro";
 
-const reasons = [
+const stays = [
   {
-    title: "No Forced Exit",
-    body: "We are not bound by fund timelines or outside investors, allowing decisions driven by long-term value — not deadlines.",
+    lead: "Your name and brand.",
+    body: "The business keeps its identity in the market. Customers see continuity, not a rebrand.",
   },
   {
-    title: "Collaborative Growth",
-    body: "We work alongside management teams, providing strategic support without disrupting the operations that got you here.",
+    lead: "Your team.",
+    body: "We back management rather than replace it. Mercury does not install itself in the operating seat.",
   },
   {
-    title: "Aligned Ownership",
-    body: "We invest in control positions while preserving leadership continuity and the founder intent that defines the company.",
+    lead: "Your customer relationships.",
+    body: "The relationships you built took years. We don't disrupt what is working.",
   },
   {
-    title: "Proven Judgment",
-    body: "Over 30 years of investing and operating experience informs every decision we make — through all cycles and conditions.",
+    lead: "Your culture.",
+    body: "Culture is the hardest asset to rebuild and the easiest to destroy. We treat it that way.",
   },
 ];
 
-const strategy = [
+const strengthens = [
   {
-    title: "Permanent Capital Structure",
-    body: "No institutional fund pressure means our investment horizon is defined by business value, not fund lifecycles. We build for decades, not years.",
+    lead: "Access to capital.",
+    body: "Growth investments, equipment, and acquisitions no longer compete with your personal balance sheet.",
   },
   {
-    title: "Business Building, Not Engineering",
-    body: "We believe operational excellence and strategic growth — not short-term financial maneuvers — create lasting value for founders, employees, and investors alike.",
+    lead: "Systems and reporting.",
+    body: "Financial visibility and operating discipline built to support decisions, not to satisfy a lender.",
   },
   {
-    title: "Control with Continuity",
-    body: "Control investments aligned with founder continuity. We maintain strategic direction while empowering the management teams who built the business.",
+    lead: "Strategic capability.",
+    body: "Pricing, sales process, recruiting, and add-on acquisitions — the areas most founder-owned businesses never had bandwidth to attack.",
   },
   {
-    title: "Deep Partnership",
-    body: "We provide strategic guidance, capital resources, operational insight, and access to a broad professional network — as genuine partners, not just capital providers.",
+    lead: "An owner who has operated.",
+    body: "Someone who has run companies through real conditions, not only financed them.",
+  },
+];
+
+const steps = [
+  {
+    title: "A confidential conversation",
+    body: "No bankers, no process, no obligation. We learn about the business and what you want the outcome to look like.",
+  },
+  {
+    title: "A direct answer on fit",
+    body: "If Mercury is not the right buyer, we say so quickly. A fast no is worth more to a founder than a slow maybe.",
+  },
+  {
+    title: "A structure built to your goals",
+    body: "Full exit, partial rollover, a defined transition period, or a continued board role. Structure follows the founder's objective — that conversation happens early and openly.",
+  },
+  {
+    title: "Diligence without disruption",
+    body: "The process stays tight and confidential so your team stays focused on the business.",
+  },
+  {
+    title: "Continuity from day one",
+    body: "No integration into a larger platform, no restructuring at close. The business keeps running the way it ran.",
   },
 ];
 
@@ -56,8 +80,20 @@ const faqs = [
     a: "Mercury partners with management teams to provide strategic guidance, capital resources, operational insight, and access to a broad professional network — from day one of ownership through the long term.",
   },
   {
-    q: "Why is Mercury the right choice for founders and advisors?",
-    a: "Mercury combines certainty of close, long-term capital, proven experience, and a partnership mindset that aligns with founders' goals for the future. Our track record demonstrates the ability to close transactions and support growth.",
+    q: "Will I need to stay on after the sale?",
+    a: "That is entirely the founder's decision, and it is one of the first things we discuss. Some founders want a clean exit at closing; others stay through a defined transition or retain a board role. Mercury backs a management team rather than running the business day to day, so the structure is built around what works for you.",
+  },
+  {
+    q: "What happens to my employees?",
+    a: "Mercury buys businesses because of the people who built them. We back existing management and invest in the team rather than restructuring at close. At DirectMed, headcount grew eleven-fold under Mercury's ownership.",
+  },
+  {
+    q: "Can I keep an ownership stake?",
+    a: "Yes. Partial rollover is common and often preferable, allowing founders to participate in the next phase of growth alongside Mercury.",
+  },
+  {
+    q: "How long does a transaction take?",
+    a: "Typically sixty days to six months from first conversation to close, depending on complexity and the founder's timeline.",
   },
 ];
 ---
@@ -117,20 +153,36 @@ const faqs = [
   <section class="section pad-global">
     <div class="container">
       <SectionHeader
-        eyebrow="Why Founders Choose Mercury"
-        lede="Founders choose Mercury because we respect the business they've built — and help strengthen it for the future."
+        eyebrow="After the Close"
+        lede="Founders want to know what happens the day after closing. Here is our answer, plainly."
       >
-        Partnership That <em>Protects What Matters</em>
+        What Changes, and <em>What Doesn't</em>
       </SectionHeader>
-      <div class="numeral-grid">
-        {
-          reasons.map((r) => (
-            <div class="numeral-item">
-              <h3 class="numeral-item__title">{r.title}</h3>
-              <p class="numeral-item__body">{r.body}</p>
-            </div>
-          ))
-        }
+      <div class="card-grid card-grid--2">
+        <div class="card">
+          <h3 class="card__title">What Stays the Same</h3>
+          <ul class="plainlist">
+            {
+              stays.map((i) => (
+                <li>
+                  <strong>{i.lead}</strong> {i.body}
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+        <div class="card">
+          <h3 class="card__title">What Gets Stronger</h3>
+          <ul class="plainlist">
+            {
+              strengthens.map((i) => (
+                <li>
+                  <strong>{i.lead}</strong> {i.body}
+                </li>
+              ))
+            }
+          </ul>
+        </div>
       </div>
     </div>
   </section>
@@ -138,17 +190,43 @@ const faqs = [
   <section class="section pad-global on-navy">
     <div class="container">
       <SectionHeader
-        eyebrow="Strategy"
-        lede="Mercury Partners invests for the long term, partnering with founders and management teams to support growth while preserving what already works. Our permanent capital structure enables us to build enduring businesses without exit pressure or short-term mandates."
+        eyebrow="What This Looks Like"
+        lede="Mercury acquired DirectMed in 2017 as a founder-owned business. Over the following eight years, working alongside management:"
       >
-        Aligned for <em>the Long Run</em>
+        DirectMed Imaging: <em>Eight Years, One Partnership</em>
       </SectionHeader>
-      <div class="card-grid card-grid--2">
+      <div style="color: var(--navy);">
+        <StatBand
+          bare
+          stats={[
+            { num: "9x", label: "Revenue Growth" },
+            { num: "11x", label: "Headcount Growth" },
+            { num: "7", label: "Acquisitions Completed" },
+            { num: "8+", label: "New Sub-Markets Entered" },
+          ]}
+        />
+      </div>
+      <p class="text-regular muted" style="margin-top: 2.5rem; max-width: 65ch;">
+        The founder's brand, team, and customer relationships stayed intact throughout. Growth
+        came from investment and acquisition, not from cost reduction.
+      </p>
+    </div>
+  </section>
+
+  <section class="section pad-global scheme-cool">
+    <div class="container">
+      <SectionHeader
+        eyebrow="The Process"
+        lede="Every situation is different. The sequence rarely is. Most transactions close within sixty days to six months of the first conversation."
+      >
+        A Transition Built Around <em>the Founder</em>
+      </SectionHeader>
+      <div class="numeral-grid">
         {
-          strategy.map((s) => (
-            <div class="card card--hover">
-              <h3 class="card__title">{s.title}</h3>
-              <p class="card__body">{s.body}</p>
+          steps.map((s) => (
+            <div class="numeral-item">
+              <h3 class="numeral-item__title">{s.title}</h3>
+              <p class="numeral-item__body">{s.body}</p>
             </div>
           ))
         }
@@ -167,3 +245,8 @@ const faqs = [
 
   <CtaBand />
 </Base>
+
+<style>
+  /* the process steps read as a plain sequence here — no accent bar above each title */
+  .numeral-item::before { display: none; }
+</style>
