@@ -195,7 +195,7 @@ const faqs = [
       >
         DirectMed Imaging: <em>Eight Years, One Partnership</em>
       </SectionHeader>
-      <div class="key-stats" style="color: var(--navy);">
+      <div style="color: var(--navy);">
         <StatBand
           bare
           stats={[
@@ -249,9 +249,4 @@ const faqs = [
 <style>
   /* the process steps read as a plain sequence here — no accent bar above each title */
   .numeral-item::before { display: none; }
-
-  /* stat tiles sized to match the Investments page: smaller figures, bottom-aligned across tiles */
-  .key-stats :global(.stat-card) { display: flex; flex-direction: column; }
-  .key-stats :global(.stat-card__label) { font-size: 0.9rem; margin-bottom: 1.5rem; flex: 1; }
-  .key-stats :global(.stat-card__num) { font-size: clamp(2rem, 3vw, 2.75rem); white-space: nowrap; }
 </style>
