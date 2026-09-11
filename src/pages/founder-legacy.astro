@@ -152,12 +152,16 @@ const faqs = [
 
   <section class="section pad-global">
     <div class="container">
-      <SectionHeader
-        eyebrow="After the Close"
-        lede="Founders want to know what happens the day after closing. Here is our answer, plainly."
-      >
-        What Changes, and <em>What Doesn't</em>
-      </SectionHeader>
+      {/* rendered inline rather than via SectionHeader so the lede can run wider than 48rem and hold one line */}
+      <div style="margin-bottom: 4rem;">
+        <span class="eyebrow" style="margin-bottom: 1rem;">After the Close</span>
+        <h2 class="h2" style="max-width: 48rem; margin-bottom: 1.5rem;">
+          What Changes, and <em>What Doesn't</em>
+        </h2>
+        <p class="lede muted" style="max-width: 56rem;">
+          Founders want to know what happens the day after closing. Here is our answer, plainly.
+        </p>
+      </div>
       <div class="card-grid card-grid--2">
         <div class="card">
           <h3
