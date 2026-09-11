@@ -160,7 +160,12 @@ const faqs = [
       </SectionHeader>
       <div class="card-grid card-grid--2">
         <div class="card">
-          <h3 class="card__title">What Stays the Same</h3>
+          <h3
+            class="card__title"
+            style="margin-bottom: 0; padding-bottom: 0.7rem; border-bottom: 1px solid var(--border);"
+          >
+            What Stays the Same
+          </h3>
           <ul class="plainlist">
             {
               stays.map((i) => (
@@ -172,7 +177,12 @@ const faqs = [
           </ul>
         </div>
         <div class="card">
-          <h3 class="card__title">What Gets Stronger</h3>
+          <h3
+            class="card__title"
+            style="margin-bottom: 0; padding-bottom: 0.7rem; border-bottom: 1px solid var(--border);"
+          >
+            What Gets Stronger
+          </h3>
           <ul class="plainlist">
             {
               strengthens.map((i) => (
@@ -224,7 +234,7 @@ const faqs = [
       <div class="numeral-grid">
         {
           steps.map((s) => (
-            <div class="numeral-item">
+            <div style="border-top: 1px solid var(--border); padding-top: 1.4rem;">
               <h3 class="numeral-item__title">{s.title}</h3>
               <p class="numeral-item__body">{s.body}</p>
             </div>
@@ -245,15 +255,3 @@ const faqs = [
 
   <CtaBand />
 </Base>
-
-<style>
-  /* the process steps read as a plain sequence here — no accent bar above each title */
-  .numeral-item::before { display: none; }
-
-  /* the two comparison columns get a rule under the header, matching the list hairlines */
-  .card-grid--2 .card__title {
-    margin-bottom: 0;
-    padding-bottom: 0.7rem;
-    border-bottom: 1px solid var(--border);
-  }
-</style>
