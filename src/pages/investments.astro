@@ -84,7 +84,7 @@ const sectors = [
   </section>
 
   <section class="section-sm pad-global scheme-cool">
-    <div class="container">
+    <div class="container key-stats">
       <StatBand
         bare
         stats={[
@@ -154,3 +154,10 @@ const sectors = [
     label="Start a Conversation"
   />
 </Base>
+
+<style>
+  /* key stats: larger labels, smaller figures, so a range like "$10–50M" fits on one line */
+  .key-stats :global(.stat-card) { display: flex; flex-direction: column; }
+  .key-stats :global(.stat-card__label) { font-size: 1.2rem; margin-bottom: 1.5rem; flex: 1; }
+  .key-stats :global(.stat-card__num) { font-size: clamp(2rem, 3vw, 2.75rem); white-space: nowrap; }
+</style>
