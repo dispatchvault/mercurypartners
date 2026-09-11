@@ -249,4 +249,11 @@ const faqs = [
 <style>
   /* the process steps read as a plain sequence here — no accent bar above each title */
   .numeral-item::before { display: none; }
+
+  /* the two comparison columns get a rule under the header, matching the list hairlines */
+  .card-grid--2 .card__title {
+    margin-bottom: 0;
+    padding-bottom: 0.7rem;
+    border-bottom: 1px solid var(--border);
+  }
 </style>
