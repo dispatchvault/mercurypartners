@@ -235,13 +235,16 @@ const faqs = [
         {
           steps.map((s, i) => (
             <div style="border-top: 1px solid var(--border); padding-top: 1.4rem;">
-              {/* sequential number in place of the short accent rule the other card groups use */}
-              <span
-                style="display: block; font-family: var(--font-serif), Georgia, serif; font-weight: 300; font-size: 1.75rem; line-height: 1; color: var(--orange); margin-bottom: 0.85rem;"
-              >
-                {i + 1}
-              </span>
-              <h3 class="numeral-item__title">{s.title}</h3>
+              {/* sequential number inline before the title, in place of the short accent rule the other card groups use;
+                  lining-nums keeps all six figures the same height (the serif defaults to old-style figures) */}
+              <h3 class="numeral-item__title">
+                <span
+                  style="font-family: var(--font-serif), Georgia, serif; font-weight: 300; font-size: 1.75rem; line-height: 1; color: var(--orange); font-variant-numeric: lining-nums; margin-right: 0.75rem;"
+                >
+                  {i + 1}
+                </span>
+                {s.title}
+              </h3>
               <p class="numeral-item__body">{s.body}</p>
             </div>
           ))
