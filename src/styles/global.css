@@ -478,7 +478,9 @@ h1 em, h2 em, h3 em, .serif-accent {
 .tag { display: inline-flex; align-items: center; border: 1px solid var(--border); padding: 0.25rem 0.625rem; font-size: 0.8rem; font-weight: 600; }
 
 /* ---------- CTA band ---------- */
-.cta-band { border-top: 1px solid var(--border); padding-bottom: 4.9rem; } /* 30% less than the 7rem .section default */
+.cta-band { border-top: 1px solid var(--border); padding-bottom: 4.9rem; } /* 30% less than the .section default at each breakpoint */
+@media (max-width: 991px) { .cta-band { padding-bottom: 4.2rem; } }
+@media (max-width: 767px) { .cta-band { padding-bottom: 2.8rem; } }
 .cta-band__inner { display: block; }
 .cta-band__inner .h3 { margin-bottom: 1rem; }
 .cta-band__inner .lede { max-width: 44ch; }
