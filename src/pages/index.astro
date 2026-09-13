@@ -1,7 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
 import SectionHeader from "../components/SectionHeader.astro";
-import Faq from "../components/Faq.astro";
 import CtaBand from "../components/CtaBand.astro";
 
 const principles = [
@@ -26,32 +25,18 @@ const steps = [
   },
   {
     title: "Acquire",
-    body: "Mercury's approach is to provide a seamless and thoughtful ownership transition that respects the founder's vision and legacy above all else.",
+    body: "We structure each transaction around the founder's objectives, with an emphasis on a thoughtful transition that respects the company's history, people, and culture.",
   },
   {
     title: "Build",
-    body: "We fund the growth most founder-owned businesses defer: developing new go-to-market capabilities, IT systems, add-on acquisitions, and the talent to support them.",
+    body: "We invest behind management by expanding the leadership team, implementing new IT systems, pursuing organic growth initiatives, and completing strategic acquisitions.",
   },
   {
     title: "Partner",
-    body: "Senior managers will have the opportunity to invest and receive equity incentives to share in the value they help create. Alignment is structural, not aspirational.",
+    body: "We align management and ownership around long-term value creation, including opportunities for senior leaders to invest alongside Mercury and participate in equity incentives.",
   },
 ];
 
-const faqs = [
-  {
-    q: "How is Mercury different from traditional private equity?",
-    a: "Unlike traditional private equity firms, Mercury Partners is not backed by institutional funds and is not required to sell businesses within a fixed timeframe. Mercury is privately funded and able to own and operate companies indefinitely, prioritizing founder legacy, culture, and long-term growth.",
-  },
-  {
-    q: "Does Mercury take an active role after acquisition?",
-    a: "Yes, but not in the operating seat. Mercury backs the existing management team and works with them on strategy, capital allocation, and growth initiatives. Day-to-day operations stay with the people who know and built the business.",
-  },
-  {
-    q: "Why is Mercury the right choice for advisors?",
-    a: "Mercury brings committed capital and a decision-maker at the table from the first conversation. There is no investment committee, and diligence is scoped to what matters. For an advisor, that means certainty of close.",
-  },
-];
 ---
 
 <Base
@@ -154,18 +139,9 @@ const faqs = [
           culture we built and what made us successful.”
         </blockquote>
         <figcaption class="quote__attr">
-          Bill Erbes <span class="quote__role">· President and Co-Founder, DirectMed</span>
+          Bill Erbes <span class="quote__role">· Co-Founder and President, DirectMed Imaging</span>
         </figcaption>
       </figure>
-    </div>
-  </section>
-
-  <section class="section pad-global scheme-grey">
-    <div class="container faq-layout">
-      <SectionHeader eyebrow="Common Questions">
-        Frequently Asked <em>Questions</em>
-      </SectionHeader>
-      <Faq items={faqs} />
     </div>
   </section>
 
