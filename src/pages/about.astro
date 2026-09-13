@@ -129,7 +129,7 @@ const faqs = [
   </section>
 
   <section class="section pad-global">
-    <div class="container split">
+    <div class="container split leadership-split">
       <div class="split__img">
         <img
           src="/images/brad-profile.jpg"
@@ -243,3 +243,24 @@ const faqs = [
     });
   });
 </script>
+
+<style>
+  /* leadership section: top-align the two columns, widen the gutter, and cap the photo
+     at the height of the text column (cropping from the bottom so the face stays high) */
+  .leadership-split { align-items: start; gap: 6rem; }
+  .leadership-split .split__img { position: relative; align-self: stretch; }
+  .leadership-split .split__img img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 0;
+    aspect-ratio: auto;
+  }
+  @media (max-width: 860px) {
+    /* stacked: photo above the text at full column width, with its own height */
+    .leadership-split { gap: 3rem; }
+    .leadership-split .split__img { aspect-ratio: 1 / 0.85; }
+  }
+</style>
