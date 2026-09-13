@@ -14,7 +14,8 @@ import ContactForm from "../components/ContactForm.astro";
         Let's <em>Talk</em>
       </h1>
       <p class="lede muted">
-        Start a confidential conversation about your business and long-term goals.
+        Every conversation starts with understanding your business, your objectives, and what
+        you're considering.
       </p>
     </div></div>
   </section>
@@ -27,6 +28,11 @@ import ContactForm from "../components/ContactForm.astro";
           <a href="mailto:info@mercfund.com">info@mercfund.com</a>
         </div>
         <div>
+          <div class="contact-info__label">Phone</div>
+          {/* placeholder until the permanent number is confirmed; make it a tel: link then */}
+          <p>(858) XXX-XXXX</p>
+        </div>
+        <div>
           <div class="contact-info__label">Address</div>
           <p>
             12544 High Bluff Drive, Suite 200
@@ -35,14 +41,14 @@ import ContactForm from "../components/ContactForm.astro";
           </p>
         </div>
         <p class="contact-info__note">
-          All inquiries are handled with complete confidentiality. Whether you are a founder
-          exploring a transition, an advisor representing a client, or an investment
-          professional, we welcome the conversation.
+          Every conversation is confidential. You don't need to have decided to sell your
+          business — or even know exactly what a transition might look like. We're happy to
+          start with a conversation.
         </p>
       </div>
       <div class="contact-form">
         <p class="lede" style="margin-bottom: 1.75rem;">
-          Tell us about your business and what you're considering.
+          Start a Conversation
         </p>
         <ContactForm />
       </div>
