@@ -1,7 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
 import SectionHeader from "../components/SectionHeader.astro";
-import Faq from "../components/Faq.astro";
 import CtaBand from "../components/CtaBand.astro";
 
 type StrategyCard = {
@@ -65,20 +64,6 @@ const strategy: StrategyCard[] = [
   },
 ];
 
-const faqs = [
-  {
-    q: "How long has Mercury Partners been in business?",
-    a: "Mercury Partners was founded in 1996. The firm invested in business services, financial services, and manufacturing companies through its early years, and today operates as a principal investor acquiring and building founder-owned businesses in healthcare services and business services.",
-  },
-  {
-    q: "What experience does Mercury have in business services?",
-    a: "Mercury has invested in and supported companies across technology-enabled services, information services, testing and inspection, tradeshow services, and distribution.",
-  },
-  {
-    q: "What experience does Mercury have in healthcare services?",
-    a: "Mercury's most recent healthcare experience — acquiring DirectMed Imaging and leading it for eight years — now shapes its focus on equipment maintenance, sterilization and infection control, and compliance-driven services.",
-  },
-];
 ---
 
 <Base
@@ -175,15 +160,6 @@ const faqs = [
           ))
         }
       </div>
-    </div>
-  </section>
-
-  <section class="section pad-global scheme-grey">
-    <div class="container faq-layout">
-      <SectionHeader eyebrow="About the Firm">
-        More <em>Questions</em>
-      </SectionHeader>
-      <Faq items={faqs} />
     </div>
   </section>
 
