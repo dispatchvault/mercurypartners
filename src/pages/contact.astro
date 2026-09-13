@@ -41,9 +41,9 @@ import ContactForm from "../components/ContactForm.astro";
           </p>
         </div>
         <p class="contact-info__note">
-          Every conversation is confidential. You don't need to have decided to sell your
-          business — or even know exactly what a transition might look like. We're happy to
-          start with a conversation.
+          Everything we discuss is confidential. You don't need to have decided to sell your
+          business, or even know exactly what a transition might look like. We're happy to
+          start by listening.
         </p>
       </div>
       <div class="contact-form">
@@ -55,3 +55,12 @@ import ContactForm from "../components/ContactForm.astro";
     </div>
   </section>
 </Base>
+
+<style>
+  /* contact-information panel: tighter vertical rhythm than the shared defaults */
+  .contact-info { padding-top: 2.8rem; padding-bottom: 2.8rem; gap: 1.6rem; }
+  .contact-info__note { padding-top: 1.6rem; }
+  @media (max-width: 640px) {
+    .contact-info { padding-top: 1.75rem; padding-bottom: 1.75rem; }
+  }
+</style>
