@@ -4,21 +4,6 @@ import SectionHeader from "../components/SectionHeader.astro";
 import Faq from "../components/Faq.astro";
 import CtaBand from "../components/CtaBand.astro";
 
-const pillars = [
-  {
-    title: "No Institutional Fund Pressure",
-    body: "Mercury is privately funded, enabling full alignment with founder and management team interests above all.",
-  },
-  {
-    title: "No Short-Term Thinking",
-    body: "We invest in people, systems, and growth strategies built to last — not financial maneuvers optimized for a quick exit.",
-  },
-  {
-    title: "No Forced Sale Timelines",
-    body: "Permanent capital means decisions are driven by long-term value creation, never by a fund's exit requirements.",
-  },
-];
-
 type StrategyCard = {
   title: string;
   items?: string[];
@@ -113,21 +98,6 @@ const faqs = [
         growth.
       </p>
     </div></div>
-  </section>
-
-  <section class="section-sm pad-global scheme-cool">
-    <div class="container">
-      <div class="card-grid card-grid--3">
-        {
-          pillars.map((p) => (
-            <div class="card card--hover">
-              <h3 class="card__title">{p.title}</h3>
-              <p class="card__body">{p.body}</p>
-            </div>
-          ))
-        }
-      </div>
-    </div>
   </section>
 
   <section class="section pad-global">
