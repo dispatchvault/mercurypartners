@@ -1,10 +1,15 @@
 ---
 interface Props {
+  /* heading is split so the closing phrase can carry the serif italic accent */
+  heading?: string;
+  accent?: string;
   lede?: string;
   label?: string;
 }
 
 const {
+  heading = "Ready to explore a",
+  accent = "partnership?",
   lede = "We're here to discuss how Mercury can support your business transition.",
   label = "Let's Talk",
 } = Astro.props;
@@ -14,7 +19,7 @@ const {
   <div class="container cta-band__inner">
     <div>
       <h2 class="h3">
-        Ready to explore a <em>partnership?</em>
+        {heading} <em>{accent}</em>
       </h2>
       <p class="lede muted">{lede}</p>
       <a href="/contact" class="btn btn--on-navy">{label}</a>
