@@ -55,9 +55,11 @@ Every push to `main` triggers a paid production build on Netlify, so
 
 1. Before starting, make sure you are on `main` and run `git pull` so you
    have the latest version of the site.
-2. Start the local preview with `npm run dev` and keep it running. The site
-   is viewable at http://localhost:4321 and updates instantly on every edit.
-   Make as many edits as needed while reviewing there.
+2. Start the local preview with `npm run dev -- --open` and keep it running
+   in the background. This opens the site in the user's browser at
+   http://localhost:4321, where it updates instantly on every edit. Tell the
+   user to look at that browser tab to review changes. If the preview is not
+   running when the user asks to see something, start it.
 3. Only when the user says to **publish** (or "push it live", "make it
    live"): run `npm run build` to confirm the site builds, commit all the
    changes to `main` with a summary of what changed, and push. Netlify
