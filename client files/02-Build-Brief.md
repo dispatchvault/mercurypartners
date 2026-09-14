@@ -47,7 +47,7 @@ Each reference file is a complete, self-contained HTML page (CSS embedded, logo 
 
 **Investments (`investments.html`)**
 - Page hero
-- 4-stat track record bar (22 Investments, 25+ Years, 70%+ Healthcare & Business Services, LMM)
+- 4-stat track record bar (24 Investments, 25+ Years, 70%+ Healthcare & Business Services, LMM)
 - 7-card investment grid, alphabetically ordered
 - Sectors breakdown (Healthcare Services / Business Services, two columns)
 
