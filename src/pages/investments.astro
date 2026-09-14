@@ -26,6 +26,8 @@ const companies = [
     desc: "Provider of diagnostic imaging parts with a strategic sourcing model spanning CT, MRI, mammography, X-ray, and ultrasound.",
     /* no logo in the photo, so the name is shown on the resting card too */
     frontLabel: true,
+    /* landscape photo in a square tile: favor the right side so less blank wall shows */
+    imgPosition: "80% 50%",
   },
   {
     name: "Richardson Healthcare",
@@ -116,7 +118,7 @@ const sectors = [
           companies.map((c) => (
             <article class="pf-card">
               <div class="pf-card__img">
-                <img src={c.img} alt={c.name} width="640" height="400" loading="lazy" />
+                <img src={c.img} alt={c.name} width="640" height="400" loading="lazy" style={c.imgPosition ? `object-position: ${c.imgPosition};` : undefined} />
               </div>
               {c.frontLabel && <span class="pf-card__front-label" aria-hidden="true">{c.name}</span>}
               <div class="pf-card__body">
@@ -168,7 +170,7 @@ const sectors = [
   /* resting-state name for a card whose photo carries no logo; fades out as the hover panel takes over */
   .pf-card__front-label {
     position: absolute;
-    bottom: 1.75rem;
+    top: 1.75rem;
     left: 1.75rem;
     z-index: 1;
     padding: 0.3rem 0.6rem;
