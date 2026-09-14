@@ -1,7 +1,6 @@
 # Mercury Partners website — working notes
 
-This is the Mercury Partners website (mercurypartners.netlify.app, moving to
-mercfund.com). It is a small, static, five-page informational site. Pushing to
+This is the Mercury Partners website (mercfund.com). It is a small, static, five-page informational site. Pushing to
 the `main` branch publishes to the live site automatically.
 
 ## Scope of changes
@@ -51,14 +50,21 @@ change cards and FAQ entries.
 
 ## Workflow
 
-1. Make the edit.
-2. Run `npm run build` to confirm the site still builds.
-3. Commit directly to `main` and push. Netlify publishes the change to the
-   live site automatically, usually within a minute. No branch or pull
-   request is needed.
+Every push to `main` triggers a paid production build on Netlify, so
+**do not push after each edit.** Draft locally, then publish once.
 
-If you are on any branch other than `main`, switch back to `main` and pull
-the latest changes before editing.
+1. Before starting, make sure you are on `main` and run `git pull` so you
+   have the latest version of the site.
+2. Start the local preview with `npm run dev` and keep it running. The site
+   is viewable at http://localhost:4321 and updates instantly on every edit.
+   Make as many edits as needed while reviewing there.
+3. Only when the user says to **publish** (or "push it live", "make it
+   live"): run `npm run build` to confirm the site builds, commit all the
+   changes to `main` with a summary of what changed, and push. Netlify
+   publishes to the live site within about a minute.
+
+Do not commit or push unless the user has asked to publish. Batch the
+session's edits into a single push whenever possible.
 
 ## Contact
 
