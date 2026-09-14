@@ -50,23 +50,17 @@ change cards and FAQ entries.
 
 ## Workflow
 
-Every push to `main` triggers a paid production build on Netlify, so
-**do not push after each edit.** Draft locally, then publish once.
-
 1. Before starting, make sure you are on `main` and run `git pull` so you
-   have the latest version of the site.
-2. Start the local preview with `npm run dev -- --open` and keep it running
-   in the background. This opens the site in the user's browser at
-   http://localhost:4321, where it updates instantly on every edit. Tell the
-   user to look at that browser tab to review changes. If the preview is not
-   running when the user asks to see something, start it.
-3. Only when the user says to **publish** (or "push it live", "make it
-   live"): run `npm run build` to confirm the site builds, commit all the
-   changes to `main` with a summary of what changed, and push. Netlify
-   publishes to the live site within about a minute.
+   have the latest version of the site. Edits are also made from another
+   machine, so the local copy is often behind.
+2. Make the edit and run `npm run build` to confirm the site still builds.
+3. Commit directly to `main` and push. Netlify publishes the change to the
+   live site automatically, usually within a minute. No branch or pull
+   request is needed.
 
-Do not commit or push unless the user has asked to publish. Batch the
-session's edits into a single push whenever possible.
+Each push triggers a Netlify production build. Publishing after every
+request is the intended behavior; there is no need to batch edits or wait
+to be told to publish.
 
 ## Contact
 
