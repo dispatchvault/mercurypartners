@@ -22,8 +22,10 @@ const companies = [
   },
   {
     name: "UNDISCLOSED",
-    img: "/images/merc-imaging.png",
+    img: "/images/undisclosed-mri.jpg",
     desc: "Provider of diagnostic imaging parts with a strategic sourcing model spanning CT, MRI, mammography, X-ray, and ultrasound.",
+    /* no logo in the photo, so the name is shown on the resting card too */
+    frontLabel: true,
   },
   {
     name: "Richardson Healthcare",
@@ -116,6 +118,7 @@ const sectors = [
               <div class="pf-card__img">
                 <img src={c.img} alt={c.name} width="640" height="400" loading="lazy" />
               </div>
+              {c.frontLabel && <span class="pf-card__front-label" aria-hidden="true">{c.name}</span>}
               <div class="pf-card__body">
                 <h3 class="pf-card__title">{c.name}</h3>
                 <p class="pf-card__desc">{c.desc}</p>
@@ -160,3 +163,27 @@ const sectors = [
     label="Let's Talk"
   />
 </Base>
+
+<style>
+  /* resting-state name for a card whose photo carries no logo; fades out as the hover panel takes over */
+  .pf-card__front-label {
+    position: absolute;
+    top: 1.75rem;
+    left: 1.75rem;
+    z-index: 1;
+    padding: 0.4rem 0.75rem;
+    background: var(--navy);
+    color: var(--white);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: opacity 0.4s ease;
+  }
+  .pf-card:hover .pf-card__front-label,
+  .pf-card:focus-within .pf-card__front-label { opacity: 0; }
+  @media (hover: none) {
+    /* touch: the info panel is always shown, so the label would duplicate the title */
+    .pf-card__front-label { display: none; }
+  }
+</style>
