@@ -117,6 +117,9 @@ const sectors = [
         {
           companies.map((c) => (
             <article class="pf-card">
+              <button class="pf-card__toggle" type="button" aria-expanded="false" aria-label={`Show details for ${c.name}`}>
+                <span aria-hidden="true"></span><span aria-hidden="true"></span>
+              </button>
               <div class="pf-card__img">
                 <img src={c.img} alt={c.name} width="640" height="400" loading="lazy" style={c.imgPosition ? `object-position: ${c.imgPosition};` : undefined} />
               </div>
@@ -166,6 +169,33 @@ const sectors = [
   />
 </Base>
 
+<script>
+  // Touch devices have no hover, so the detail panel opens on tap instead.
+  // One card open at a time; tapping it again, another card, or outside closes it.
+  const touch = window.matchMedia("(hover: none)");
+  const cards = Array.from(document.querySelectorAll<HTMLElement>(".pf-card"));
+
+  function setOpen(card: HTMLElement, open: boolean) {
+    card.classList.toggle("is-open", open);
+    card.querySelector(".pf-card__toggle")?.setAttribute("aria-expanded", String(open));
+  }
+  function closeAll(except?: HTMLElement) {
+    cards.forEach((c) => c !== except && setOpen(c, false));
+  }
+
+  cards.forEach((card) => {
+    card.addEventListener("click", () => {
+      if (!touch.matches) return;
+      const open = !card.classList.contains("is-open");
+      closeAll(card);
+      setOpen(card, open);
+    });
+  });
+  document.addEventListener("click", (e) => {
+    if (touch.matches && !(e.target as Element).closest(".pf-card")) closeAll();
+  });
+</script>
+
 <style>
   /* resting-state name for a card whose photo carries no logo; fades out as the hover panel takes over */
   .pf-card__front-label {
@@ -185,7 +215,8 @@ const sectors = [
   .pf-card:hover .pf-card__front-label,
   .pf-card:focus-within .pf-card__front-label { opacity: 0; }
   @media (hover: none) {
-    /* touch: the info panel is always shown, so the label would duplicate the title */
-    .pf-card__front-label { display: none; }
+    /* touch: label shows at rest, hides once the card is tapped open */
+    .pf-card:hover .pf-card__front-label { opacity: 1; }
+    .pf-card.is-open .pf-card__front-label { opacity: 0; }
   }
 </style>

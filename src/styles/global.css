@@ -471,9 +471,28 @@ h1 em, h2 em, h3 em, .serif-accent {
 .pf-card__desc { color: rgba(255, 255, 255, 0.85); font-size: var(--text-body); }
 .pf-card__tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.5rem; }
 .pf-card__tags .tag { border-color: var(--white); color: var(--white); }
-/* touch devices: no hover — keep the info visible */
+/* tap affordance: a small "+" that becomes "×" when the card is open (touch only) */
+.pf-card__toggle {
+  display: none; position: absolute; right: 1rem; bottom: 1rem; z-index: 3;
+  width: 2.5rem; height: 2.5rem; border: 1px solid rgba(255, 255, 255, 0.7); border-radius: 50%;
+  background: rgba(15, 34, 54, 0.55); cursor: pointer; padding: 0;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.3s;
+}
+.pf-card__toggle span {
+  position: absolute; left: 50%; top: 50%; width: 0.9rem; height: 2px; background: var(--white);
+  transform: translate(-50%, -50%);
+}
+.pf-card__toggle span:last-child { transform: translate(-50%, -50%) rotate(90deg); }
+/* touch devices: no hover, so the panel is hidden at rest and opens on tap */
 @media (hover: none) {
-  .pf-card__body { transform: none; opacity: 1; padding-top: 3rem; }
+  .pf-card__toggle { display: block; }
+  .pf-card:hover .pf-card__img img { transform: none; }
+  .pf-card:hover::after { opacity: 0; }
+  .pf-card:hover .pf-card__body { transform: translateY(1.5rem); opacity: 0; }
+  .pf-card.is-open .pf-card__img img { transform: scale(1.04); }
+  .pf-card.is-open::after { opacity: 0.25; }
+  .pf-card.is-open .pf-card__body { transform: translateY(0); opacity: 1; padding-right: 4.25rem; }
+  .pf-card.is-open .pf-card__toggle { transform: rotate(45deg); background: rgba(15, 34, 54, 0.85); }
 }
 .tag { display: inline-flex; align-items: center; border: 1px solid var(--border); padding: 0.25rem 0.625rem; font-size: 0.8rem; font-weight: 600; }
 
