@@ -21,15 +21,6 @@ const companies = [
     desc: "Component-level repair and testing provider specializing in highly technical repairs for diagnostic imaging equipment.",
   },
   {
-    name: "UNDISCLOSED",
-    img: "/images/undisclosed-mri.jpg",
-    desc: "Provider of diagnostic imaging parts with a strategic sourcing model spanning CT, MRI, mammography, X-ray, and ultrasound.",
-    /* no logo in the photo, so the name is shown on the resting card too */
-    frontLabel: true,
-    /* landscape photo in a square tile: favor the right side so less blank wall shows */
-    imgPosition: "80% 50%",
-  },
-  {
     name: "Richardson Healthcare",
     img: "/images/richardson.jpg",
     desc: "Provider of Toshiba diagnostic imaging parts and training services, along with Siemens CT X-ray tube distribution.",
@@ -48,6 +39,15 @@ const companies = [
     name: "Titanium Medical Imaging",
     img: "/images/titanium.jpg",
     desc: "Provider of parts and technical services for Toshiba diagnostic imaging systems, serving independent service organizations and hospitals nationwide.",
+  },
+  {
+    name: "UNDISCLOSED",
+    img: "/images/undisclosed-mri.jpg",
+    desc: "Provider of diagnostic imaging parts with a strategic sourcing model spanning CT, MRI, mammography, X-ray, and ultrasound.",
+    /* the other photos carry their logo baked in; this one gets an overlaid wordmark instead */
+    logo: "/images/undisclosed-thin.png",
+    /* landscape photo in a square tile: favor the right side so less blank wall shows */
+    imgPosition: "80% 50%",
   },
 ];
 
@@ -123,7 +123,7 @@ const sectors = [
               <div class="pf-card__img">
                 <img src={c.img} alt={c.name} width="640" height="400" loading="lazy" style={c.imgPosition ? `object-position: ${c.imgPosition};` : undefined} />
               </div>
-              {c.frontLabel && <span class="pf-card__front-label" aria-hidden="true">{c.name}</span>}
+              {c.logo && <img class="pf-card__logo" src={c.logo} alt="" aria-hidden="true" loading="lazy" />}
               <div class="pf-card__body">
                 <h3 class="pf-card__title">{c.name}</h3>
                 <p class="pf-card__desc">{c.desc}</p>
@@ -197,26 +197,16 @@ const sectors = [
 </script>
 
 <style>
-  /* resting-state name for a card whose photo carries no logo; fades out as the hover panel takes over */
-  .pf-card__front-label {
+  /* overlaid wordmark for a tile whose photo has no logo baked in. Centered at about two-thirds
+     of the tile width to match the optical size of the other logos; no z-index so it sits above
+     the photo but beneath the hover wash and detail panel, exactly like those logos do. */
+  .pf-card__logo {
     position: absolute;
-    top: 1.75rem;
-    left: 1.75rem;
-    z-index: 1;
-    padding: 0.3rem 0.6rem;
-    background: rgba(26, 53, 87, 0.65); /* navy at 65% so the photo shows through */
-    color: var(--white);
-    font-size: 0.65rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    transition: opacity 0.4s ease;
-  }
-  .pf-card:hover .pf-card__front-label,
-  .pf-card:focus-within .pf-card__front-label { opacity: 0; }
-  @media (hover: none) {
-    /* touch: label shows at rest, hides once the card is tapped open */
-    .pf-card:hover .pf-card__front-label { opacity: 1; }
-    .pf-card.is-open .pf-card__front-label { opacity: 0; }
+    top: 50%;
+    left: 50%;
+    width: 66%;
+    height: auto;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
   }
 </style>
