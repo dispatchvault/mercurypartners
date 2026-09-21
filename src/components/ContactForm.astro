@@ -51,14 +51,22 @@
   <div class="field field--wide">
     <button class="btn" type="submit">Send Message</button>
     <p class="form-status form-status--err" role="alert" hidden>
-      Something went wrong. Please try again, or email contact@mercfund.com directly.
+      Something went wrong. Please try again or email us at <a href="mailto:contact@mercfund.com">contact@mercfund.com</a>.
     </p>
   </div>
 </form>
 
 <p class="form-status form-status--ok" role="status" hidden>
-  Thank you. We'll be in touch soon.
+  Thank you. We'll be in touch shortly.
 </p>
+
+<style>
+  /* .form-grid sets display: grid, which outranks the browser's [hidden] rule, so the
+     form never actually disappeared on success. Make hidden win here. */
+  form[name="contact"][hidden] { display: none; }
+  /* the thank-you replaces the form, so it shouldn't carry the below-button offset */
+  .form-status--ok { margin-top: 0; font-size: var(--text-body); }
+</style>
 
 <script>
   const form = document.querySelector<HTMLFormElement>('form[name="contact"]');
