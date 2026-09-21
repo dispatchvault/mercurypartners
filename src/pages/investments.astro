@@ -147,7 +147,7 @@ const sectors = [
       <div class="card-grid card-grid--2">
         {
           sectors.map((s) => (
-            <div class="card">
+            <div class="card sector-card">
               <h3 class="card__title">{s.title}</h3>
               <ul class="plainlist">
                 {s.items.map((i) => (
@@ -218,5 +218,16 @@ const sectors = [
     height: auto;
     transform: translate(-50%, -50%);
     pointer-events: none;
+  }
+  /* Industry Focus: the two sector headers use the serif display face (the same one as the
+     headline accents) so they read as headers rather than as the first item in the list. */
+  .sector-card .card__title {
+    font-family: var(--font-serif), Georgia, serif;
+    font-weight: 300;
+    font-size: 1.9rem;
+    letter-spacing: 0.02rem;
+    line-height: 1.15;
+    color: var(--navy);
+    margin-bottom: 1rem;
   }
 </style>
