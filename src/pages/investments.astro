@@ -219,15 +219,6 @@ const sectors = [
     transform: translate(-50%, -50%);
     pointer-events: none;
   }
-  /* Industry Focus: the two sector headers use the serif display face (the same one as the
-     headline accents) so they read as headers rather than as the first item in the list. */
-  .sector-card .card__title {
-    font-family: var(--font-serif), Georgia, serif;
-    font-weight: 300;
-    font-size: 1.9rem;
-    letter-spacing: 0.02rem;
-    line-height: 1.15;
-    color: var(--navy);
-    margin-bottom: 1rem;
-  }
+  /* Industry Focus: the two sector headers are set in all caps */
+  .sector-card .card__title { text-transform: uppercase; }
 </style>
