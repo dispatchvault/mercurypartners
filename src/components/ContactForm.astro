@@ -87,6 +87,10 @@
         body: new URLSearchParams(new FormData(form) as any).toString(),
       });
       if (!res.ok) throw new Error(String(res.status));
+      // clear the entries so nothing lingers if the form is shown again (e.g. back navigation)
+      form.reset();
+      button.disabled = false;
+      button.textContent = "Send Message";
       form.hidden = true;
       success?.removeAttribute("hidden");
     } catch {
