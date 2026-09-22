@@ -551,7 +551,6 @@ h1 em, h2 em, h3 em, .serif-accent {
 .footer__tag { font-family: var(--font-serif), Georgia, serif; font-style: italic; color: var(--orange); font-size: 1.15rem; }
 .footer__bottom { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; padding-top: 2rem; padding-bottom: 2.5rem; font-size: 0.8rem; color: var(--navy-tint); }
 .footer__bottom a { color: var(--navy-tint); }
-.footer__legal { display: flex; flex-direction: column; gap: 0.35rem; }
 .footer__legal a { text-decoration: underline; text-underline-offset: 2px; }
 .footer__legal a:hover { color: var(--white); }
 
