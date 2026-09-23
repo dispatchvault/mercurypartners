@@ -3,18 +3,34 @@ import "@fontsource-variable/inter";
 import "../styles/global.css";
 import Nav from "../components/Nav.astro";
 import Footer from "../components/Footer.astro";
+import { abs, canonicalFor, pageGraph } from "../lib/seo";
 
 interface Props {
-  /** Page title; suffixed with "| Mercury Partners" (mirrors the Next.js title template). */
+  /** Short page name; rendered as "<title> | Mercury Partners" unless seoTitle is given. */
   title?: string;
+  /** Full <title> override for search results (keep under ~60 characters). */
+  seoTitle?: string;
+  /** Meta description for search results (aim for 140–160 characters). */
   description: string;
+  /** schema.org type for this page: WebPage, AboutPage, ContactPage, CollectionPage. */
+  pageType?: string;
+  /** Breadcrumb trail after Home, for search results. */
+  crumbs?: { name: string; path: string }[];
+  /** JSON-LD node this page is primarily about. */
+  mainEntity?: object;
+  /** Extra JSON-LD nodes for this page (FAQ, item lists). */
+  schema?: object[];
+  /** Keep this page out of search results (e.g. the 404 page). */
+  noindex?: boolean;
 }
 
 const DEFAULT_TITLE = "Mercury Partners | Permanent Capital for Founder-Owned Businesses";
-const METADATA_BASE = "https://www.mercfund.com";
+const OG_IMAGE = abs("/images/og-mercury-partners.jpg");
 
-const { title, description } = Astro.props;
-const fullTitle = title ? `${title} | Mercury Partners` : DEFAULT_TITLE;
+const { title, seoTitle, description, pageType, crumbs, mainEntity, schema, noindex } = Astro.props;
+const fullTitle = seoTitle ?? (title ? `${title} | Mercury Partners` : DEFAULT_TITLE);
+const canonical = canonicalFor(Astro.url.pathname);
+const jsonLd = pageGraph({ url: canonical, title: fullTitle, description, pageType, crumbs, mainEntity, extra: schema });
 ---
 
 <!doctype html>
@@ -24,12 +40,28 @@ const fullTitle = title ? `${title} | Mercury Partners` : DEFAULT_TITLE;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
+    {noindex
+      ? <meta name="robots" content="noindex, follow" />
+      : <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />}
+    {!noindex && <link rel="canonical" href={canonical} />}
     <link rel="icon" type="image/png" href="/favicon.png" />
+    <meta name="theme-color" content="#0f2236" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Mercury Partners" />
+    <meta property="og:locale" content="en_US" />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
-    <meta property="og:site_name" content="Mercury Partners" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content={`${METADATA_BASE}/images/mercury-meeting.jpg`} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={OG_IMAGE} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Mercury Partners: permanent capital for founder-owned businesses" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={OG_IMAGE} />
+    <link rel="alternate" type="text/plain" href="/llms.txt" title="Mercury Partners summary for AI assistants" />
+    {!noindex && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
     <script is:inline>document.documentElement.classList.add("js-anim");</script>
   </head>
   <body>

@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import { faqPage, canonicalFor } from "../lib/seo";
 import SectionHeader from "../components/SectionHeader.astro";
 import StatBand from "../components/StatBand.astro";
 import Faq from "../components/Faq.astro";
@@ -100,7 +101,10 @@ const faqs = [
 
 <Base
   title="For Founders"
-  description="We invest in businesses the way founders built them — for the long haul. Mercury preserves culture, values, people, and relationships."
+  seoTitle="Selling or Transitioning Your Business | Mercury Partners"
+  description="For founders weighing a sale, recapitalization, or succession: how Mercury Partners structures transitions that keep your team, culture, and brand intact."
+  crumbs={[{ name: "For Founders", path: "/founder-legacy/" }]}
+  schema={[faqPage(canonicalFor("/founder-legacy/"), faqs)]}
 >
   <section class="page-hero page-hero--dark pad-global">
     <div class="container"><div class="page-hero__inner">

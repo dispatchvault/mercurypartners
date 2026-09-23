@@ -1,11 +1,16 @@
 ---
 import Base from "../layouts/Base.astro";
+import { ORG_ID } from "../lib/seo";
 import ContactForm from "../components/ContactForm.astro";
 ---
 
 <Base
   title="Contact"
-  description="Start a confidential conversation about your business and long-term goals with Mercury Partners."
+  seoTitle="Contact Mercury Partners | San Diego, CA"
+  description="Business owners and advisors: start a confidential conversation with Mercury Partners about a sale, recapitalization, or acquisition opportunity."
+  pageType="ContactPage"
+  crumbs={[{ name: "Contact", path: "/contact/" }]}
+  mainEntity={{ "@id": ORG_ID }}
 >
   <section class="page-hero page-hero--dark pad-global">
     <div class="container"><div class="page-hero__inner">

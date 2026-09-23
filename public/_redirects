@@ -1,1 +1,33 @@
-/sitemap.xml  /sitemap-index.xml  301
+# Sitemap alias
+/sitemap.xml                    /sitemap-index.xml   301
+
+# Pages from earlier versions of mercfund.com (Webflow, WordPress, and the original
+# HTML site). Old links from press coverage and directories land on the closest page.
+/index.html                     /                    301
+/home                           /                    301
+/why-mercury                    /founder-legacy/     301
+/acquire-and-operate            /about/              301
+/investment-parameters          /about/              301
+/overview.html                  /about/              301
+/intermediaries.html            /about/              301
+/criteriaI.html                 /about/              301
+/criteriaII.html                /about/              301
+/criteriaIII.html               /about/              301
+/criteriaIV.html                /about/              301
+/partners.html                  /about/              301
+/teams.html                     /about/              301
+/dekoning.html                  /about/              301
+/bland.html                     /about/              301
+/gardenswartz.html              /about/              301
+/rahn.html                      /about/              301
+/vidergauz.html                 /about/              301
+/representative-transactions    /investments/        301
+/investments.html               /investments/        301
+/mercury-partners-acquires-directmed-parts-services   /founder-legacy/   301
+/directmed-parts-service-acquires-medical-systems-technologies   /investments/   301
+/directmed-parts-service-acquires-Medical-Systems-Technologies   /investments/   301
+/contact.html                   /contact/            301
+/directions.html                /contact/            301
+/feed                           /                    301
+/feed/*                         /                    301
+/*/feed                         /                    301

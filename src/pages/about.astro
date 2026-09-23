@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import { ORG_ID } from "../lib/seo";
 import SectionHeader from "../components/SectionHeader.astro";
 import CtaBand from "../components/CtaBand.astro";
 
@@ -69,7 +70,11 @@ const strategy: StrategyCard[] = [
 
 <Base
   title="About"
-  description="Over 30 years of principal investing and CEO experience across two lower middle market companies. Mercury Partners is built on aligned, long-term ownership."
+  seoTitle="About Mercury Partners | Brad de Koning, Founding Partner"
+  description="Led by Brad de Koning since 1996, Mercury Partners makes control investments in founder transitions, recapitalizations, and management buyouts."
+  pageType="AboutPage"
+  crumbs={[{ name: "About", path: "/about/" }]}
+  mainEntity={{ "@id": ORG_ID }}
 >
   <section class="page-hero page-hero--dark pad-global">
     <div class="container"><div class="page-hero__inner">

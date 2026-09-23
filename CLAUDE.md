@@ -62,6 +62,23 @@ Each push triggers a Netlify production build. Publishing after every
 request is the intended behavior; there is no need to batch edits or wait
 to be told to publish.
 
+## Search and AI visibility
+
+The site is set up for search engines and AI assistants. Keep it that way:
+
+- **Facts live in three places.** The visible page copy, `src/lib/seo.ts`
+  (structured data read by Google and AI assistants), and `public/llms.txt`
+  (a plain-text summary for AI assistants). When a fact changes — revenue or
+  EBITDA range, transaction size, sectors, address, phone, Brad's title, the
+  list of investments — update all three in the same edit.
+- **Page titles and descriptions** are set at the top of each page file
+  (`seoTitle` and `description` on `<Base>`). Keep titles under about 60
+  characters and descriptions between 140 and 160.
+- **FAQ answers are mirrored automatically** into structured data from the
+  `faqs` list on the For Founders page, so edit them there only.
+- **Do not rename or remove pages** without adding a redirect in
+  `public/_redirects`. Old links from press coverage point at this domain.
+
 ## Contact
 
 Jay Zaslaw (Zinc) maintains this site — jzaslaw@zincsolutions.com.
