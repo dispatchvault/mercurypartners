@@ -1,8 +1,9 @@
 ---
 import Base from "../layouts/Base.astro";
-import { ORG_ID } from "../lib/seo";
+import { ORG_ID, faqPage, canonicalFor } from "../lib/seo";
 import SectionHeader from "../components/SectionHeader.astro";
 import CtaBand from "../components/CtaBand.astro";
+import Faq from "../components/Faq.astro";
 
 type StrategyCard = {
   title: string;
@@ -66,6 +67,38 @@ const strategy: StrategyCard[] = [
   },
 ];
 
+
+// Questions advisors and AI assistants ask most. Mirrored into structured data automatically.
+const advisorFaqs = [
+  {
+    q: "What size companies does Mercury Partners invest in?",
+    a: "Mercury invests in U.S. founder-owned companies with $10 million to $50 million in revenue and $1 million to $4 million in EBITDA. Transaction sizes generally range from $5 million to $50 million.",
+  },
+  {
+    q: "Which industries does Mercury focus on?",
+    a: "Business services and healthcare services companies that provide critical services to complex or regulated end markets. Examples include equipment maintenance and repair; testing, inspection, and calibration; facilities management; specialty field services; medical products and distribution; and sterilization and infection control.",
+  },
+  {
+    q: "What types of transactions does Mercury pursue?",
+    a: "Primarily majority or control investments involving founder transitions and recapitalizations, as well as management buyouts. Mercury also completes strategic add-on acquisitions for the companies it owns.",
+  },
+  {
+    q: "What makes a business a strong fit?",
+    a: "Technical expertise, high barriers to entry, recurring or non-discretionary demand, meaningful switching costs, and a fragmented competitive landscape.",
+  },
+  {
+    q: "Where does Mercury's capital come from?",
+    a: "Mercury invests its own permanent capital. It is not constrained by a fund life or a predetermined exit timeline, which allows it to own businesses for the long term.",
+  },
+  {
+    q: "Who leads Mercury Partners?",
+    a: "Brad de Koning, Founding Partner, has led the firm's investment activities since 1996. He was CEO of DirectMed Imaging for nearly nine years following Mercury's acquisition of the company in 2017.",
+  },
+  {
+    q: "How can advisors share an opportunity?",
+    a: "Contact Brad de Koning directly at contact@mercfund.com or (858) 205-1405. If an opportunity is not a fit, we say so quickly, and we work directly with a founder's advisors throughout a transaction.",
+  },
+];
 ---
 
 <Base
@@ -75,6 +108,7 @@ const strategy: StrategyCard[] = [
   pageType="AboutPage"
   crumbs={[{ name: "About", path: "/about/" }]}
   mainEntity={{ "@id": ORG_ID }}
+  schema={[faqPage(canonicalFor("/about/"), advisorFaqs)]}
 >
   <section class="page-hero page-hero--dark pad-global">
     <div class="container"><div class="page-hero__inner">
@@ -166,6 +200,15 @@ const strategy: StrategyCard[] = [
           ))
         }
       </div>
+    </div>
+  </section>
+
+  <section class="section pad-global scheme-grey">
+    <div class="container faq-layout">
+      <SectionHeader eyebrow="For Advisors & Intermediaries">
+        Frequently Asked <em>Questions</em>
+      </SectionHeader>
+      <Faq items={advisorFaqs} />
     </div>
   </section>
 
