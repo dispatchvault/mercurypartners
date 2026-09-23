@@ -24,7 +24,9 @@ const organization = {
   "@type": "Organization",
   "@id": ORG_ID,
   name: "Mercury Partners",
+  alternateName: "Mercury Partners, LLC",
   url: `${SITE_URL}/`,
+  sameAs: ["https://www.linkedin.com/company/mercury-partners-llc"],
   logo: {
     "@type": "ImageObject",
     url: abs("/images/logo-blue.png"),
